@@ -13,8 +13,8 @@ include( dependencies )
 add_subdirectory( src/sptam )
 
 # build unit tests
-enable_testing()
-add_subdirectory( src/tests )
+#enable_testing()
+#add_subdirectory( src/tests )
 
 # When building with ROS
 if( CATKIN_DEVEL_PREFIX )

@@ -173,6 +173,7 @@ void sptam::stereo_driver::onImages(
   // Current tate estimation //
   /////////////////////////////
 
+  ROS_INFO("start 'onImages()'");
   size_t currentSeq = img_msg_left->header.seq;
   ros::Time currentTime = img_msg_left->header.stamp;
   //ros::Time currentTime = ros::Time::now(); // Gaston: level7_full has a bug on headers stamps (they jump into the future)

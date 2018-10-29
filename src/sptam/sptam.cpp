@@ -54,12 +54,14 @@
   #include "../sptam/utils/log/Profiler.hpp"
 #endif // SHOW_PROFILING
 
+#include <iostream>
+
 // ===================== //
 // Some magic numbers :) //
 // ===================== //
 
 // Minimum number of triangulated points required to initialize a "good" map.
-#define MIN_POINTS_FOR_MAP 10
+#define MIN_POINTS_FOR_MAP 5
 
 SPTAM::SPTAM(const RowMatcher& rowMatcher, const Parameters& params)
   : mapMaker_(map_, params)
@@ -83,8 +85,11 @@ void SPTAM::init(/*const*/ StereoFrame& frame)
   frame.TriangulatePoints(rowMatcher_, points, measurements);
 
   // check that there are at least a minimum number of correct matches when there is no map
-  if ( points.size() < MIN_POINTS_FOR_MAP )
+  if ( points.size() < MIN_POINTS_FOR_MAP ){
+    std::cout<<points.size()<<std::endl;
     throw std::runtime_error("Not enough points to initialize map.");
+
+  }
 
   // Add Keyframe to the map
   sptam::Map::SharedKeyFrame keyFrame = map_.AddKeyFrame( frame );

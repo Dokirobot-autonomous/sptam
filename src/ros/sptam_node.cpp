@@ -32,10 +32,17 @@
  */
 
 #include <ros/ros.h>
+#include <ros/console.h>
 #include <nodelet/loader.h>
 
 int main(int argc, char* argv[])
 {
+
+  // debug mode
+//  if( ros::console::set_logger_level(ROSCONSOLE_DEFAULT_NAME, ros::console::levels::Debug) ) {
+//   ros::console::notifyLoggerLevelsChanged();
+//  }
+
   ros::init(argc, argv, "sptam");
 
   nodelet::Loader nodelet;
