@@ -321,7 +321,7 @@ void sptam::stereo_driver::loadCameraCalibration(
   const cv::Matx33d& intrinsic = intrinsicLeft;
 
   // Save the baseline
-  stereo_baseline_ = stereoCameraModel.baseline();
+  stereo_baseline_ = stereoCameraModel.baseline()*1000;
   ROS_INFO_STREAM("baseline: " << stereo_baseline_);
   assert( stereo_baseline_ > 0 );
 

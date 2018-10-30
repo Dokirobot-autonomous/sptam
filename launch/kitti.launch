@@ -3,6 +3,33 @@
   <!-- Set use_sim_time true for datasets-->
   <param name="use_sim_time" value="true" />
 
+<!--<group ns="imagetransport1">
+
+ <node name="republish1" type="republish" pkg="image_transport" output="screen" args="compressed in:=/sensor/camera/grayscale/left/image_rect/compressed out:=/sensor/camera/grayscale/left/image_rect" >
+
+  <param name="approximate_sync" value="true"/>
+
+  <param name="queue_size" value="10"/>
+
+</node>
+
+</group>
+
+
+
+<group ns="imagetransport2">
+
+ <node name="republish2" type="republish" pkg="image_transport" output="screen" args="compressed in:=/sensor/camera/grayscale/right/image_rect/compressed out:=/sensor/camera/grayscale/right/image_rect" >
+
+<param name="approximate_sync" value="true"/>
+
+<param name="queue_size" value="10"/>
+
+</node>
+
+</group> -->
+
+
   <!-- static_transform_publisher x y z yaw pitch roll frame_id child_frame_id -->
   <!-- This transform was used set only to test if everything works
        when using something different than the camera as a reference frame.
@@ -42,10 +69,10 @@
     <!--param name="map_frame" value="map" /-->
     <param name="reference_frame" value="left_camera" />
 
-    <remap from="/stereo/left/image_rect" to="/sensor/camera/color/left/image_rect" />
-    <remap from="/stereo/left/camera_info"  to="/sensor/camera/color/left/camera_info" />
-    <remap from="/stereo/right/image_rect" to="/sensor/camera/color/right/image_rect" />
-    <remap from="/stereo/right/camera_info"  to="/sensor/camera/color/right/camera_info" />
+    <remap from="/stereo/left/image_rect" to="/sensor/camera/grayscale/left/image_raw" />
+    <remap from="/stereo/left/camera_info"  to="/sensor/camera/grayscale/left/camera_info" />
+    <remap from="/stereo/right/image_rect" to="/sensor/camera/grayscale/right/image_raw" />
+    <remap from="/stereo/right/camera_info"  to="/sensor/camera/grayscale/right/camera_info" />
 
   </node>
 
