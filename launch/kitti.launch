@@ -40,6 +40,7 @@
        When 'base_link' is set as the reference frame,
        take care to set this transformation to the same as the previous one -->
   <node pkg="tf2_ros" type="static_transform_publisher" name="start_broadcaster" args="0 0 0 0 0 0 start map" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="transform_local_cs_2_sptam" args="0 0 0 0 0 0 local_cs map" />
 
   <!-- S-PTAM pose path publisher. Used for visualization. -->
   <node pkg="ros_utils" type="pose_to_path" name="sptam_path">
